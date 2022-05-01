@@ -37,3 +37,5 @@
 
 <hr>
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+Обычно в данным файле описывается, как запустить проект, какие-то огтдельные детали проекта
