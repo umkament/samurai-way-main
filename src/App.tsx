@@ -1,20 +1,20 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter} from "react-router-dom";
-import Technologies from "./Technologies";
-import Header from "./Header";
+import Header from "./components/Header";
+import Navbar from "./components/Navigation";
+import Profile from "./components/Profile";
+import Navigation from "./components/Navigation";
+
 
 
 function App() {
   return (
-     <BrowserRouter>
-    <div className="App">
-     Hello, samurai! Let's go!
-      <Header/>
-      <Technologies/>
+    <div className='app-wrapper'>
+    <Header/>
+     <Navigation/>
+      <Profile/>
     </div>
-     </BrowserRouter>
-  );
+  )
 }
 
 export default App;
