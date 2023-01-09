@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import Navigation from "./components/Navigation/Navigation";
 import Dialogs from "./components/Dialogs/Dialogs";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
@@ -16,7 +16,6 @@ type AppPropsType = {
 
 function App (props: AppPropsType) {
   return (
-     <BrowserRouter>
        <div className='app-wrapper'>
          <Header/>
          <Navigation/>
@@ -30,7 +29,6 @@ function App (props: AppPropsType) {
            <Route path='/settings' render={() => <Settings/>}/>
          </div>
        </div>
-     </BrowserRouter>
   )
 }
 
