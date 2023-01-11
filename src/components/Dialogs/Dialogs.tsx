@@ -2,8 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import {Message} from "./Message/Message";
 import {DialogItem} from "./DialogsItem/DialogsItem";
-import {DialogsType, messagesPageType, MessagesType} from "../../redux/state";
-
+import {messagesPageType} from "../../redux/state";
 
 
 type DialogsPropsType = {
@@ -13,14 +12,14 @@ type DialogsPropsType = {
 
 const Dialogs = (props: DialogsPropsType) => {
 
-  let dialogsElements = props.messagesPage.dialogs.map( d => <DialogItem name={d.name} id={d.id} />)
+  let dialogsElements = props.messagesPage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
 
-  let messagesElements = props.messagesPage.messages.map(m =>  <Message message={m.message}/>)
+  let messagesElements = props.messagesPage.messages.map(m => <Message message={m.message}/>)
 
 
-  let newElement= React.createRef<HTMLTextAreaElement>();
-  let addMass = ()=> {
-    let text =  newElement.current?.value
+  let newElement = React.createRef<HTMLTextAreaElement>();
+  let addMass = () => {
+    let text = newElement.current?.value
     alert(text)
   }
 
