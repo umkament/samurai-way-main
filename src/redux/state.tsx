@@ -8,22 +8,26 @@ export type MessagesType = {
   id: number,
   message: string
 }
+export type messagesPageType = {
+  dialogs: Array<DialogsType>
+  messages: Array<MessagesType>
+}
+
 export type PostsType = {
   id: number
   message: string
   likesCount: number
 }
-type messagesPageType = {
-  dialogs: Array<DialogsType>
-  messages: Array<MessagesType>
-}
-type profilePageType = {
+export type profilePageType = {
   posts: Array<PostsType>
+  newPostText: string
 }
+
 export type StateType={
   messagesPage: messagesPageType
   profilePage: profilePageType
 }
+
 
 export let state: StateType = {
 messagesPage: {
@@ -47,7 +51,8 @@ messagesPage: {
     posts: [
       {id: 1, message: 'Hi, how are you?', likesCount: 0},
       {id: 2, message: 'It\'s my first post', likesCount: 16},
-    ]
+    ],
+    newPostText: "it-kamasutra.com"
   }
 }
 

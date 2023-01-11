@@ -2,20 +2,20 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import {Message} from "./Message/Message";
 import {DialogItem} from "./DialogsItem/DialogsItem";
-import {DialogsType, MessagesType} from "../../redux/state";
+import {DialogsType, messagesPageType, MessagesType} from "../../redux/state";
 
 
 
 type DialogsPropsType = {
-  dialogs: Array<DialogsType>
-  messages: Array<MessagesType>
+  messagesPage: messagesPageType
+
 }
 
 const Dialogs = (props: DialogsPropsType) => {
 
-  let dialogsElements = props.dialogs.map( d => <DialogItem name={d.name} id={d.id} />)
+  let dialogsElements = props.messagesPage.dialogs.map( d => <DialogItem name={d.name} id={d.id} />)
 
-  let messagesElements = props.messages.map(m =>  <Message message={m.message}/>)
+  let messagesElements = props.messagesPage.messages.map(m =>  <Message message={m.message}/>)
 
 
   let newElement= React.createRef<HTMLTextAreaElement>();
@@ -33,7 +33,7 @@ const Dialogs = (props: DialogsPropsType) => {
          {messagesElements}
        </div>
        <div>
-         <textarea ref={newElement}></textarea>
+         <textarea ref={newElement}/>
          <button onClick={addMass}> send</button>
        </div>
      </div>
