@@ -104,15 +104,11 @@ export type StoreType = {
   //updateTextPost: (textOfPost: string)=>void
   dispatch: (action: ActionType)=>void
 }
-export type ActionType = AddPostActionType | UpdateTextPostActionType
-type AddPostActionType = {
-  type: 'ADD-POST'
-}
-type UpdateTextPostActionType = {
-  type: 'UPDATE-TEXT-POST'
-  textOfPost: string
-}
+export type ActionType = ReturnType<typeof addPostAC> | ReturnType<typeof updateTextPostAC>
 
+export const addPostAC = () => ({type: 'ADD-POST'} as const)
+export const updateTextPostAC = (textOfPost: string) =>
+   ({type: "UPDATE-TEXT-POST", textOfPost: textOfPost} as const)
 
 
 // @ts-ignore
