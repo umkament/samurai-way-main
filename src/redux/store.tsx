@@ -17,7 +17,8 @@ export let store: StoreType = {
         {id: 3, message: 'Fine'},
         {id: 4, message: 'Yo'},
         {id: 5, message: 'Hello World'}
-      ]
+      ],
+      newMessageBody: ''
     },
     profilePage: {
       posts: [
@@ -66,6 +67,14 @@ export let store: StoreType = {
     } else if (action.type === 'UPDATE-TEXT-POST'){
       this._state.profilePage.newPostText = action.textOfPost
       this._callSubscriber()
+    } else if (action.type === 'UPDATE-MESSAGE-BODY') {
+      this._state.messagesPage.newMessageBody = action.textOfMessage
+      this._callSubscriber()
+    } else if (action.type === 'SEND-MESSAGE'){
+      let textOfMessage = this._state.messagesPage.newMessageBody
+      this._state.messagesPage.newMessageBody = ''
+      this._state.messagesPage.messages.push({id: 6, message: textOfMessage})
+      this._callSubscriber()
     }
   }
 }
@@ -81,6 +90,7 @@ export type MessagesType = {
 export type messagesPageType = {
   dialogs: Array<DialogsType>
   messages: Array<MessagesType>
+  newMessageBody: string
 }
 export type PostsType = {
   id: number
@@ -97,19 +107,28 @@ export type StateType = {
 }
 export type StoreType = {
   _state: StateType
-  _callSubscriber: ()=> void
+  _callSubscriber: () => void
   getState: () => StateType
-  subscribe: (observer: ()=>void)=>void
- // addPost: ()=>void
+  subscribe: (observer: () => void) => void
+  // addPost: ()=>void
   //updateTextPost: (textOfPost: string)=>void
-  dispatch: (action: ActionType)=>void
+  dispatch: (action: ActionType) => void
 }
-export type ActionType = ReturnType<typeof addPostAC> | ReturnType<typeof updateTextPostAC>
+
+export type ActionType = ReturnType<typeof addPostAC> |
+   ReturnType<typeof updateTextPostAC> |
+   ReturnType<typeof updateMessageBodyAC> |
+   ReturnType<typeof sendMessageAC>
 
 export const addPostAC = () => ({type: 'ADD-POST'} as const)
+
 export const updateTextPostAC = (textOfPost: string) =>
    ({type: "UPDATE-TEXT-POST", textOfPost: textOfPost} as const)
 
+export const updateMessageBodyAC = (textOfMessage: string) =>
+   ({type: "UPDATE-MESSAGE-BODY", textOfMessage: textOfMessage} as const)
+
+export const sendMessageAC = () => ({type: "SEND-MESSAGE"} as const)
 
 // @ts-ignore
 window.store = store;
