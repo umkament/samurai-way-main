@@ -1,4 +1,5 @@
-
+import {addPostAC, profileReducer, updateTextPostAC} from "./profilePage-reducer";
+import {messagesReducer, sendMessageAC, updateMessageBodyAC} from "./messagePage-reducer";
 
 export let store: StoreType = {
   _state: {
@@ -39,43 +40,10 @@ export let store: StoreType = {
     this._callSubscriber = observer
   },
 
- /* addPost (){
-    let newPost: PostsType = {
-      id: 3,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0
-    }
-    this._state.profilePage.posts.push(newPost)
-    this._state.profilePage.newPostText = ''
-    this._callSubscriber()
-  },
-  updateTextPost (textOfPost: string){
-    this._state.profilePage.newPostText = textOfPost
-    this._callSubscriber()
-  },*/
-
  dispatch (action) {
-    if (action.type === 'ADD-POST'){
-      let newPost: PostsType = {
-        id: 3,
-        message: this._state.profilePage.newPostText,
-        likesCount: 0
-      }
-      this._state.profilePage.posts.push(newPost)
-      this._state.profilePage.newPostText = ''
-      this._callSubscriber()
-    } else if (action.type === 'UPDATE-TEXT-POST'){
-      this._state.profilePage.newPostText = action.textOfPost
-      this._callSubscriber()
-    } else if (action.type === 'UPDATE-MESSAGE-BODY') {
-      this._state.messagesPage.newMessageBody = action.textOfMessage
-      this._callSubscriber()
-    } else if (action.type === 'SEND-MESSAGE'){
-      let textOfMessage = this._state.messagesPage.newMessageBody
-      this._state.messagesPage.newMessageBody = ''
-      this._state.messagesPage.messages.push({id: 6, message: textOfMessage})
-      this._callSubscriber()
-    }
+   this._state.profilePage = profileReducer(this._state.profilePage, action)
+   this._state.messagesPage = messagesReducer(this._state.messagesPage, action)
+   this._callSubscriber()
   }
 }
 
@@ -119,16 +87,6 @@ export type ActionType = ReturnType<typeof addPostAC> |
    ReturnType<typeof updateTextPostAC> |
    ReturnType<typeof updateMessageBodyAC> |
    ReturnType<typeof sendMessageAC>
-
-export const addPostAC = () => ({type: 'ADD-POST'} as const)
-
-export const updateTextPostAC = (textOfPost: string) =>
-   ({type: "UPDATE-TEXT-POST", textOfPost: textOfPost} as const)
-
-export const updateMessageBodyAC = (textOfMessage: string) =>
-   ({type: "UPDATE-MESSAGE-BODY", textOfMessage: textOfMessage} as const)
-
-export const sendMessageAC = () => ({type: "SEND-MESSAGE"} as const)
 
 // @ts-ignore
 window.store = store;
