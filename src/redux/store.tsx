@@ -1,5 +1,6 @@
-import {addPostAC, profileReducer, updateTextPostAC} from "./profilePage-reducer";
-import {messagesReducer, sendMessageAC, updateMessageBodyAC} from "./messagePage-reducer";
+import {addPostAC, updateTextPostAC} from "./profilePage-reducer";
+import {sendMessageAC, updateMessageBodyAC} from "./messagePage-reducer";
+/*
 
 export let store: StoreType = {
   _state: {
@@ -46,6 +47,7 @@ export let store: StoreType = {
    this._callSubscriber()
   }
 }
+*/
 
 export type DialogsType = {
   id: number,
@@ -73,7 +75,7 @@ export type StateType = {
   messagesPage: messagesPageType
   profilePage: profilePageType
 }
-export type StoreType = {
+/*export type StoreType = {
   _state: StateType
   _callSubscriber: () => void
   getState: () => StateType
@@ -81,13 +83,11 @@ export type StoreType = {
   // addPost: ()=>void
   //updateTextPost: (textOfPost: string)=>void
   dispatch: (action: ActionType) => void
-}
+}*/
 
 export type ActionType = ReturnType<typeof addPostAC> |
    ReturnType<typeof updateTextPostAC> |
    ReturnType<typeof updateMessageBodyAC> |
    ReturnType<typeof sendMessageAC>
 
-// @ts-ignore
-window.store = store;
 

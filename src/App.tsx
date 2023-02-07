@@ -8,15 +8,14 @@ import {Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
-import {StoreType} from "./redux/store";
 
-type AppPropsType = {
+/*type AppPropsType = {
   store: StoreType
  //addPost: () => void
   //updateTextPost: (textOfPost: string) => void
-}
+}*/
 
-const App: React.FC<AppPropsType> = (props) => {
+const App = () => {
 
   return (
      <div className='app-wrapper'>
@@ -26,11 +25,11 @@ const App: React.FC<AppPropsType> = (props) => {
 
 
          <Route path='/dialogs' render={() =>
-            <Dialogs store={props.store}/>
+            <Dialogs />
          }
          />
          <Route path='/profile' render={() =>
-            <Profile store={props.store}/>
+            <Profile />
          }
          />
          <Route path='/news' render={() => <News/>}/>
