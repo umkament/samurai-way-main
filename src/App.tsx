@@ -3,17 +3,19 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import Navigation from "./components/Navigation/Navigation";
-import Dialogs from "./components/Dialogs/Dialogs";
 import {Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
+import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
 
 /*type AppPropsType = {
   store: StoreType
  //addPost: () => void
   //updateTextPost: (textOfPost: string) => void
 }*/
+
+
 
 const App = () => {
 
@@ -23,9 +25,8 @@ const App = () => {
        <Navigation/>
        <div className='app-wrapper-content'>
 
-
          <Route path='/dialogs' render={() =>
-            <Dialogs />
+            <DialogsContainer />
          }
          />
          <Route path='/profile' render={() =>

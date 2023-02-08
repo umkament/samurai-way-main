@@ -75,6 +75,7 @@ export type StateType = {
   messagesPage: messagesPageType
   profilePage: profilePageType
 }
+
 /*export type StoreType = {
   _state: StateType
   _callSubscriber: () => void

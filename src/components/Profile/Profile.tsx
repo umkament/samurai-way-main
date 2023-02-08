@@ -1,7 +1,6 @@
 import React from 'react';
 import ProfileInfo from "./ProfileInfo";
-import MyPosts from "./MyPosts/MyPosts";
-import {store} from "../../redux/redux-store";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 /*
 type ProfilePropsType = {
  // profilePage: profilePageType
@@ -10,23 +9,18 @@ type ProfilePropsType = {
   store: StoreType
 }*/
 const Profile = () => {
-let state = store.getState()
+
   return (
      <div>
        <ProfileInfo/>
-       <MyPosts posts={state.profilePage.posts}
-                newPostText={state.profilePage.newPostText}
-                dispatch={store.dispatch.bind(store)}
+       <MyPostsContainer //posts={state.profilePage.posts}
+                //newPostText={state.profilePage.newPostText}
+               // dispatch={store.dispatch.bind(store)}
                 //addPost={props.store.addPost.bind(props.store)}
                 //updateTextPost={props.store.updateTextPost.bind(props.store)}
 
-
-
        />
-       <MyPosts posts={state.profilePage.posts}
-                newPostText={state.profilePage.newPostText}
-                dispatch={store.dispatch.bind(store)}
-       />
+       <MyPostsContainer/>
      </div>
   )
 }
