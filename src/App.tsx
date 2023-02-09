@@ -9,6 +9,7 @@ import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
 import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
 
+
 /*type AppPropsType = {
   store: StoreType
  //addPost: () => void
@@ -25,8 +26,7 @@ const App = () => {
        <Navigation/>
        <div className='app-wrapper-content'>
 
-         <Route path='/dialogs' render={() =>
-            <DialogsContainer />
+         <Route path='/dialogs' render={() => <DialogsContainer  />
          }
          />
          <Route path='/profile' render={() =>

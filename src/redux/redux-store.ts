@@ -1,27 +1,17 @@
 import {combineReducers, createStore} from "redux";
-import {messagesReducer, sendMessageAC, updateMessageBodyAC} from "./messagePage-reducer";
+import {messagesPageType, messagesReducer, sendMessageAC, updateMessageBodyAC} from "./messagePage-reducer";
 import {addPostAC, profileReducer, updateTextPostAC} from "./profilePage-reducer";
 
 
-export type DialogsType = {
-  id: number,
-  name: string
-}
-export type MessagesType = {
-  id: number,
-  message: string
-}
+
+
 export type PostsType = {
   id: number
   message: string
   likesCount: number
 }
 
-export type messagesPageType = {
-  dialogs: Array<DialogsType>
-  messages: Array<MessagesType>
-  newMessageBody: string
-}
+
 export type profilePageType = {
   posts: Array<PostsType>
   newPostText: string
@@ -33,15 +23,15 @@ export type StateType = {
 }
 
 
-let reducers = combineReducers({
+let rootReducer = combineReducers({
   messagesPage: messagesReducer,
   profilePage: profileReducer
 })
 
 
-export let store = createStore(reducers);
+export let store = createStore(rootReducer);
 
-export type AppRootState = ReturnType<typeof reducers>
+export type AppRootStateType = ReturnType<typeof rootReducer>
 
 // @ts-ignore
 window.store = store;
