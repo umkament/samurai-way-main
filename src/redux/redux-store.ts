@@ -2,9 +2,6 @@ import {combineReducers, createStore} from "redux";
 import {DialogsType, messagesReducer, MessagesType, sendMessageAC, updateMessageBodyAC} from "./messagePage-reducer";
 import {addPostAC, profileReducer, updateTextPostAC} from "./profilePage-reducer";
 
-
-
-
 export type PostsType = {
   id: number
   message: string

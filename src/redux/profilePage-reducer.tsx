@@ -10,6 +10,7 @@ let initialState = {
     newPostText: "it-kamasutra.com"
 }
 
+
 export const profileReducer = (state: InitialStateProfileType = initialState, action: ActionType): InitialStateProfileType=> {
 switch (action.type) {
   case 'ADD-POST':

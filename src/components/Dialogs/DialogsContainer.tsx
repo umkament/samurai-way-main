@@ -9,7 +9,6 @@ type MapStatePropsType = {
   messagesPage: InitialStateMessageType
 }
 
-
 type MapDispatchPropsType = {
   updateMessageBody: (textOfMessage: string)=> void,
   sendMessage: ()=>void
@@ -31,6 +30,7 @@ let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
     }
   }
 }
+
 
 export const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
