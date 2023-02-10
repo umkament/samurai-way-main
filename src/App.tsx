@@ -10,14 +10,6 @@ import Settings from "./Settings/Settings";
 import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
 
 
-/*type AppPropsType = {
-  store: StoreType
- //addPost: () => void
-  //updateTextPost: (textOfPost: string) => void
-}*/
-
-
-
 const App = () => {
 
   return (
@@ -26,7 +18,8 @@ const App = () => {
        <Navigation/>
        <div className='app-wrapper-content'>
 
-         <Route path='/dialogs' render={() => <DialogsContainer  />
+         <Route path='/dialogs' render={() =>
+            <DialogsContainer />
          }
          />
          <Route path='/profile' render={() =>

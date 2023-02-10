@@ -1,12 +1,12 @@
 import React from 'react';
-import {messagesPageType, sendMessageAC, updateMessageBodyAC} from "../../redux/messagePage-reducer";
+import {InitialStateMessageType, sendMessageAC, updateMessageBodyAC} from "../../redux/messagePage-reducer";
 import {AppRootStateType} from "../../redux/redux-store";
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
 
 type MapStatePropsType = {
-  messagesPage: messagesPageType
+  messagesPage: InitialStateMessageType
 }
 
 type MapDispatchPropsType = {
@@ -31,7 +31,8 @@ let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
   }
 }
 
-export const DialogsContainer = () => connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+export const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
 
 
 

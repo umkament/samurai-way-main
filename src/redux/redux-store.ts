@@ -1,5 +1,5 @@
 import {combineReducers, createStore} from "redux";
-import {messagesPageType, messagesReducer, sendMessageAC, updateMessageBodyAC} from "./messagePage-reducer";
+import {DialogsType, messagesReducer, MessagesType, sendMessageAC, updateMessageBodyAC} from "./messagePage-reducer";
 import {addPostAC, profileReducer, updateTextPostAC} from "./profilePage-reducer";
 
 
@@ -10,13 +10,16 @@ export type PostsType = {
   message: string
   likesCount: number
 }
-
-
 export type profilePageType = {
   posts: Array<PostsType>
   newPostText: string
 }
 
+export type messagesPageType = {
+  dialogs: Array<DialogsType>
+  messages: Array<MessagesType>
+  newMessageBody: string
+}
 export type StateType = {
   messagesPage: messagesPageType
   profilePage: profilePageType

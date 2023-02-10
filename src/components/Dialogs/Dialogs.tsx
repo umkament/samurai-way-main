@@ -7,9 +7,9 @@ import {DialogsPropsType} from "./DialogsContainer";
 
 export const Dialogs: React.FC<DialogsPropsType>= (props) => {
 
-  let dialogsElements = props.messagesPage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
+  let dialogsElements = props.messagesPage.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id}/>)
 
-  let messagesElements = props.messagesPage.messages.map(m => <Message message={m.message}/>)
+  let messagesElements = props.messagesPage.messages.map(m => <Message message={m.message} key={m.id}/>)
   let newMessageBody = props.messagesPage.newMessageBody
 
   let addMessChange = (e: ChangeEvent<HTMLTextAreaElement>)=> {
@@ -33,7 +33,7 @@ export const Dialogs: React.FC<DialogsPropsType>= (props) => {
          <textarea placeholder='enter your message'
                         value={newMessageBody}
                         onChange={addMessChange}
-         ></textarea>
+         />
          <div><button onClick={addMessClick}>send</button></div>
        </div>
      </div>
