@@ -9,6 +9,7 @@ type MapStatePropsType = {
   messagesPage: InitialStateMessageType
 }
 
+
 type MapDispatchPropsType = {
   updateMessageBody: (textOfMessage: string)=> void,
   sendMessage: ()=>void
