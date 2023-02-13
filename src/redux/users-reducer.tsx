@@ -8,23 +8,25 @@ type UserLocationType = {
 }
 export type UserType = {
   id: number,
-  photoUrl: string,
+  photos: {
+    small: string,
+    large: string
+  },
   followed: boolean,
-  fullName: string,
+  name: string,
   status: string,
-  location: UserLocationType
+ // location: UserLocationType
 }
 
 let initialState = {
     users: [
-      {id: 1, photoUrl: 'https://v1.popcornnews.ru/k2/news/canvas/1200/upload/news/784626562470.jpg',
+     /* {id: 1, photoUrl: 'https://v1.popcornnews.ru/k2/news/canvas/1200/upload/news/784626562470.jpg',
         followed: false, fullName: "Dmitry", status: "i'm a teacher", location: {city: 'Minsk', country: 'Belarus'}},
       {id: 2, photoUrl: 'https://avatars.mds.yandex.net/get-kino-vod-films-gallery/28788/47e2fd514411e18b76af786d7417062d/100x64_3',
         followed: true, fullName: "Christina", status: "i'm a student", location: {city: 'Volgograd', country: 'Russia'}},
       {id: 3, photoUrl: 'https://rg.ru/uploads/images/2022/11/02/ovot_cf9.jpg',
-        followed: false, fullName: "Umka", status: "i'm a dream", location: {city: 'New-York', country: 'USA'}},
-
-    ]
+        followed: false, fullName: "Umka", status: "i'm a dream", location: {city: 'New-York', country: 'USA'}},*/
+    ] as Array<UserType>
 }
 
 
