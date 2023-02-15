@@ -26,7 +26,10 @@ let initialState = {
         followed: true, fullName: "Christina", status: "i'm a student", location: {city: 'Volgograd', country: 'Russia'}},
       {id: 3, photoUrl: 'https://rg.ru/uploads/images/2022/11/02/ovot_cf9.jpg',
         followed: false, fullName: "Umka", status: "i'm a dream", location: {city: 'New-York', country: 'USA'}},*/
-    ] as Array<UserType>
+    ] as Array<UserType>,
+  pageSize: 5,
+  totalUsersCount: 0,
+  currentPage: 2
 }
 
 
@@ -55,7 +58,17 @@ switch (action.type) {
   case 'SET-USERS':
     return {
       ...state,
-      users: [...state.users, ...action.users]
+      users: action.users
+    }
+  case 'SET-CURRENT-PAGE':
+    return {
+... state,
+      currentPage: action.currentPage
+    }
+  case 'SET-TOTAL-USERS-COUNT':
+    return {
+      ... state,
+      totalUsersCount: action.totalCount
     }
   default:
     return state
@@ -65,3 +78,5 @@ switch (action.type) {
 export const followAC = (userId: number) => ({type: 'FOLLOW', userId} as const)
 export const unfollowAC = (userId: number) => ({type: "UNFOLLOW", userId} as const)
 export const setUsersAC = (users: Array<UserType>) => ({type: "SET-USERS", users} as const)
+export const setCurrentPageAC = (currentPage: number)=> ({type: 'SET-CURRENT-PAGE', currentPage} as const)
+export const setTotalUsersCountAC = (totalUsersCount: number)=> ({type: 'SET-TOTAL-USERS-COUNT', totalCount: totalUsersCount } as const)

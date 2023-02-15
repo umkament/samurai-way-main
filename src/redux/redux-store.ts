@@ -1,7 +1,7 @@
 import {combineReducers, createStore} from "redux";
 import {DialogsType, messagesReducer, MessagesType, sendMessageAC, updateMessageBodyAC} from "./messagePage-reducer";
 import {addPostAC, profileReducer, updateTextPostAC} from "./profilePage-reducer";
-import {followAC, setUsersAC, unfollowAC, usersReducer} from "./users-reducer";
+import {followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unfollowAC, usersReducer} from "./users-reducer";
 
 export type PostsType = {
   id: number
@@ -42,5 +42,9 @@ export type ActionType = ReturnType<typeof addPostAC> |
    ReturnType<typeof sendMessageAC> |
    ReturnType<typeof followAC> |
    ReturnType<typeof unfollowAC> |
-   ReturnType<typeof setUsersAC>
+   ReturnType<typeof setUsersAC> |
+   ReturnType<typeof setCurrentPageAC> |
+   ReturnType<typeof setTotalUsersCountAC>
+
+
 
