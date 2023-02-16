@@ -19,17 +19,11 @@ export type UserType = {
 }
 
 let initialState = {
-    users: [
-     /* {id: 1, photoUrl: 'https://v1.popcornnews.ru/k2/news/canvas/1200/upload/news/784626562470.jpg',
-        followed: false, fullName: "Dmitry", status: "i'm a teacher", location: {city: 'Minsk', country: 'Belarus'}},
-      {id: 2, photoUrl: 'https://avatars.mds.yandex.net/get-kino-vod-films-gallery/28788/47e2fd514411e18b76af786d7417062d/100x64_3',
-        followed: true, fullName: "Christina", status: "i'm a student", location: {city: 'Volgograd', country: 'Russia'}},
-      {id: 3, photoUrl: 'https://rg.ru/uploads/images/2022/11/02/ovot_cf9.jpg',
-        followed: false, fullName: "Umka", status: "i'm a dream", location: {city: 'New-York', country: 'USA'}},*/
-    ] as Array<UserType>,
+    users: [] as Array<UserType>,
   pageSize: 5,
   totalUsersCount: 0,
-  currentPage: 2
+  currentPage: 2,
+  isFetching: false
 }
 
 
@@ -70,6 +64,11 @@ switch (action.type) {
       ... state,
       totalUsersCount: action.totalCount
     }
+  case 'TOGGLE-IS-FETCHING':
+    return {
+      ... state,
+      isFetching: action.isFetching
+    }
   default:
     return state
 }
@@ -80,3 +79,4 @@ export const unfollowAC = (userId: number) => ({type: "UNFOLLOW", userId} as con
 export const setUsersAC = (users: Array<UserType>) => ({type: "SET-USERS", users} as const)
 export const setCurrentPageAC = (currentPage: number)=> ({type: 'SET-CURRENT-PAGE', currentPage} as const)
 export const setTotalUsersCountAC = (totalUsersCount: number)=> ({type: 'SET-TOTAL-USERS-COUNT', totalCount: totalUsersCount } as const)
+export const toggleIsFetchingAC = (isFetching: boolean)=> ({type: 'TOGGLE-IS-FETCHING', isFetching } as const)
