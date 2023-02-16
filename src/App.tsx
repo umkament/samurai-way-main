@@ -8,7 +8,8 @@ import News from "./components/News/News";
 import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
 import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
-import {UsersContainer} from "./components/Users/UsersContainer";
+import UsersContainer from "./components/Users/UsersContainer";
+
 
 
 const App = () => {
